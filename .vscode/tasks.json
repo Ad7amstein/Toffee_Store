@@ -1,0 +1,45 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build",
+			"type": "shell",
+			"command": "javac -d ./build -cp '.;lib/*' src/*.java",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": {
+				"owner": "java",
+				"fileLocation": [
+					"absolute"
+				],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):\\s+(error|warning):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"severity": 3,
+					"message": 4
+				}
+			}
+		},
+		{
+			"label": "build and run",
+			"type": "shell",
+			"command": "javac -d ./build -cp '.;lib/*' src/*.java; cd build; java -cp '.;../lib/*' Main",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "generate javadoc",
+			"type": "shell",
+			"command": "cd src; javadoc -d ../doc -cp '.;../lib/*' *.java",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
