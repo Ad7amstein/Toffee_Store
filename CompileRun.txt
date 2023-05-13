@@ -1,0 +1,5 @@
+VScode:
+ctrl+shift+B > select build and run
+
+shell:
+"command": "javac -d ./build -cp '.;lib/*' src/*.java; cd build; java -cp '.;../lib/*' Main"
