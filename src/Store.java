@@ -79,9 +79,10 @@ public class Store {
         this.catalog = cat;
     }
 
-    public void setOrders(Vector<Order> orders){
+    public void setOrders(Vector<Order> orders) {
         this.orderQueue = orders;
     }
+
     /**
      * Returns the catalog of the store.
      * 
@@ -378,7 +379,7 @@ public class Store {
                 startAdmin(curr);
                 return;
             }
-            if (filter != 0){
+            if (filter != 0) {
                 for (Order order : orderQueue) {
                     if (order.getStatus().equals(stat)) {
                         order.viewOrder();
@@ -394,7 +395,7 @@ public class Store {
             System.out.println("Enter order number to update status or 0 to back: ");
             int order_num = scanner.nextInt();
             scanner.nextLine();
-            if (order_num == 0){
+            if (order_num == 0) {
                 startAdmin(curr);
                 return;
             }
@@ -412,14 +413,13 @@ public class Store {
             int orderStat = scanner.nextInt();
             scanner.nextLine();
             System.out.println();
-            if (orderStat == 1){
+            if (orderStat == 1) {
                 orderQueue.get(order_num).updateStatus("In Queue");
-            } else if (orderStat == 2){
+            } else if (orderStat == 2) {
                 orderQueue.get(order_num).updateStatus("Canceled");
-            } else if (orderStat == 3){
+            } else if (orderStat == 3) {
                 orderQueue.get(order_num).updateStatus("Done");
-            }
-            else {
+            } else {
                 System.out.println("Invalid choice ;(\n");
                 startAdmin(curr);
                 return;
@@ -438,6 +438,11 @@ public class Store {
             double item_d;
             int item_i;
             Item newItem = new Item();
+            int cnt = 0;
+            for (Map.Entry<String, Vector<Item>> entry : catalog.getCatalog().entrySet()) {
+                cnt += entry.getValue().size();
+            }
+            newItem.setID(cnt + 1);
             System.out.println("Enter item category: ");
             item_cat = scanner.nextLine();
             System.out.println("Enter item name: ");
@@ -450,10 +455,12 @@ public class Store {
             item_s = scanner.nextLine();
             newItem.setBrand(item_s);
             System.out.println("Enter item price: ");
-            item_d = scanner.nextDouble();
+            item_d = Double.parseDouble(scanner.next());
+            scanner.nextLine();
             newItem.setPrice(item_d);
             System.out.println("Enter item discount: ");
-            item_d = scanner.nextDouble();
+            item_d = Double.parseDouble(scanner.next());
+            scanner.nextLine();
             newItem.setDiscount(item_d);
             System.out.println("Enter item amount: ");
             item_i = scanner.nextInt();

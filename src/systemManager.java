@@ -398,6 +398,7 @@ public class systemManager {
         Files.write(Paths.get(adminCsvPath), "".getBytes());
         Files.write(Paths.get(customerCsvPath), "".getBytes());
         Files.write(Paths.get(itemCsvPath), "".getBytes());
+        Files.write(Paths.get(orderCsvPath), "".getBytes());
 
         // Write Admin data to CSV file
         BufferedWriter adminWriter = new BufferedWriter(new FileWriter(adminCsvPath));
@@ -451,6 +452,7 @@ public class systemManager {
         orderWriter.newLine();
         for (Order order : store.getOrders()) {
             Vector<Item> OrderItems = order.getItems();
+
             StringBuilder sb = new StringBuilder();
             for (Item i : OrderItems) {
                 sb.append(i.getID());
