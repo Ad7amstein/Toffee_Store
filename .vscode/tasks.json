@@ -2,11 +2,11 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "build",
+			"label": "Build",
 			"type": "shell",
-			"command": "javac -d ./build -cp '.;lib/*' src/*.java",
+			"command": "javac -d ./bin -cp '.;lib/*' src/*.java",
 			"group": {
-				"kind": "build",
+				"kind":"build",
 				"isDefault": true
 			},
 			"problemMatcher": {
@@ -24,16 +24,25 @@
 			}
 		},
 		{
-			"label": "build and run",
+			"label": "Build and run",
 			"type": "shell",
-			"command": "javac -d ./build -cp '.;lib/*' src/*.java; cd build; java -cp '.;../lib/*' Main",
+			"command": "javac -d ./bin -cp '.;lib/*' src/*.java; cd bin; java -cp '.;../lib/*' Main",
 			"group": {
 				"kind": "build",
 				"isDefault": true
 			}
 		},
 		{
-			"label": "generate javadoc",
+			"label": "Run",
+			"type": "shell",
+			"command": "cd bin; java -cp '.;../lib/*' Main",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "Generate javadoc",
 			"type": "shell",
 			"command": "cd src; javadoc -d ../doc -cp '.;../lib/*' *.java",
 			"group": {
