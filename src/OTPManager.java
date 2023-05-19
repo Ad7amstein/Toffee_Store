@@ -43,7 +43,8 @@ public class OTPManager {
         // Create a session with email server
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(fromEmail, "ay7aga"); // replace with your email password
+                return new PasswordAuthentication(fromEmail, "app_password"); // replace with your email password
+                                                                                  // (app password)
             }
         });
 
