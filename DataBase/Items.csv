@@ -1,11 +1,11 @@
 ID,name,description,brand,price,discount,amount,category
-1,Gummy Bears,Soft and chewy gummy candies in assorted fruit flavors,$3.99,0%,Gummy Candy
-2,Sour Patch Kids,Tangy and sweet gummy candies in assorted fruit flavors,$4.99,10%,Gummy Candy
-3,Hershey's Chocolate Bars,Classic milk chocolate bars made with real cocoa,$1.99,0%,Chocolate
-4,M&M's,Crunchy candy shells with milk chocolate centers in assorted colors,$2.49,5%,Chocolate
-5,Skittles,Colorful fruit-flavored chewy candies with a hard candy shell,$3.49,0%,Hard Candy
-6,Jolly Ranchers,Hard candies in bold fruit flavors,$2.99,15%,Hard Candy
-7,Twizzlers,Chewy licorice twists in strawberry flavor,$1.99,0%,Licorice
-8,Reese's Pieces,Crunchy candy shells with creamy peanut butter centers,$2.99,10%,Peanut Butter Candy
-9,Snickers Bars,Crunchy peanuts, creamy caramel, and chewy nougat covered in milk chocolate,$1.49,0%,Chocolate
-10,Kit Kat Bars,Crispy wafer bars covered in milk chocolate,$1.99,0%,Chocolate
+5,Jelly Bean Bonanza,An array of jelly beans in a rainbow of colors and flavors,JellyJoy,3.99,0.1,250,Jelly Beans
+6,Marshmallow Madness,Soft and fluffy marshmallows perfect for snacking or roasting,Campfire Sweets,2.99,0.0,150,Marshmallows
+9,Hard Candy Mix,Assorted hard candies with a variety of flavors,Old-Fashioned Treats,4.99,0.1,200,Hard Candy
+2,Gummy Fun Mix,A mix of fruity gummy candies in various shapes and flavors,CandyLand,4.99,0.05,200,Gummy
+3,Lollipop Paradise,A collection of colorful and flavorful lollipops,SweetTreats,1.99,0.0,500,Lollipops
+1,Choco Delights,A delightful assortment of chocolates,ChocoWorld,15.0,0.1,100,Chocolate
+4,Sour Blast Chewies,Tangy and chewy candies that pack a sour punch,TartBurst,2.49,0.15,300,Sour Candy
+7,Sour Patch Kids,Sweet and sour fruity candies that pack a tangy punch,SPK Candy Co.,1.99,0.05,400,Sour Candy
+8,Rainbow Twists,Colorful and chewy licorice twists in various flavors,Candy Twist,3.49,0.0,300,Licorice
+10,Caramel Dream,Indulgent and creamy caramel candies with a rich buttery taste,Sweet Caramels,3.99,0.0,250,Caramel
