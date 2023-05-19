@@ -75,7 +75,7 @@ public class systemManager {
         }
 
         OTPManager.Create(email);
-        while(true){
+        while (true) {
             System.out.println("OTP: ");
             if (OTPManager.otpNum == scanner.nextInt())
                 break;
@@ -89,7 +89,6 @@ public class systemManager {
         store.addCustomer(newCustomer);
         System.out.println("Registered in successfully ^_^\n");
     }
-    
 
     /**
      * Registers a new admin by prompting the user for their name, email,
@@ -131,18 +130,49 @@ public class systemManager {
             email = scanner.nextLine();
 
             String pass;
+            System.out.println("1. Enter Password");
+            System.out.println("2. Forget Password");
+            System.out.println("Enter your choice: ");
+            int npass = scanner.nextInt();
+            scanner.nextLine();
+            switch (npass) {
+                case 1:
+                    System.out.print("Enter your password: ");
+                    pass = scanner.nextLine();
 
-            System.out.print("Enter your password: ");
-            pass = scanner.nextLine();
-
-            for (Customer i : store.getCustomers()) {
-                if (i.getEmail().equals(email)) {
-                    if (i.getPassword().equals(pass)) {
-                        b = true;
-                        current = i;
-                        break;
+                    for (Customer i : store.getCustomers()) {
+                        if (i.getEmail().equals(email)) {
+                            if (i.getPassword().equals(pass)) {
+                                b = true;
+                                current = i;
+                                break;
+                            }
+                        }
                     }
-                }
+                    break;
+                case 2:
+                    System.out.println("We will send you an OTP in a moment...");
+                    OTPManager.Create(email);
+                    int otp;
+                    do {
+                        System.out.println("Enter OTP: ");
+                        otp = scanner.nextInt();
+                        scanner.nextLine();
+                        if (otp != OTPManager.otpNum) {
+                            System.out.println("Wrong OTP");
+                        } else {
+                            for (Customer i : store.getCustomers()) {
+                                if (i.getEmail().equals(email)) {
+                                    b = true;
+                                    current = i;
+                                    break;
+                                }
+                            }
+                        }
+                    } while (otp != OTPManager.otpNum);
+                    break;
+                default:
+                    break;
             }
             if (b) {
                 System.out.println("Logged in successfully :)");
@@ -397,7 +427,8 @@ public class systemManager {
 
         // Write Item data to CSV file
         BufferedWriter itemWriter = new BufferedWriter(new FileWriter(itemCsvPath));
-        String itemhead = String.join(",", "ID","name", "description", "brand", "price", "discount", "amount", "category");
+        String itemhead = String.join(",", "ID", "name", "description", "brand", "price", "discount", "amount",
+                "category");
         itemWriter.write(itemhead);
         itemWriter.newLine();
         for (Map.Entry<String, Vector<Item>> entry : store.getCatalog().getCatalog().entrySet()) {
@@ -421,7 +452,7 @@ public class systemManager {
         for (Order order : store.getOrders()) {
             Vector<Item> OrderItems = order.getItems();
             StringBuilder sb = new StringBuilder();
-            for (Item i : OrderItems){
+            for (Item i : OrderItems) {
                 sb.append(i.getID());
                 sb.append("-");
             }

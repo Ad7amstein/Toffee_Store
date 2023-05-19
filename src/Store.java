@@ -392,8 +392,13 @@ public class Store {
                 return;
             }
             System.out.println("Enter order number to update status or 0 to back: ");
-            int order_num = scanner.nextInt() - 1;
+            int order_num = scanner.nextInt();
             scanner.nextLine();
+            if (order_num == 0){
+                startAdmin(curr);
+                return;
+            }
+            order_num--;
             if (order_num >= orderQueue.size() || order_num < 0) {
                 System.out.println("Invalid choice ;(\n");
                 startAdmin(curr);
